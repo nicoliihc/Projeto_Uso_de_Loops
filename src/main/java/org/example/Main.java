@@ -18,10 +18,11 @@ public class Main {
         System.out.println("\n=== Sistema de Registro de Pedidos de uma Lanchonete ===");
 
         System.out.println("""
-                            \nDeseja cadastrar um pedido?
-                            1 - Sim
-                            2 - Não
-                            """);
+                    \nEscolha uma opção abaixo:
+                    \n1 - Cadastrar Pedido
+                    2 - Exibir Relatório
+                    3 - Encerrar Sistema
+                    """);
         int opcao = entrada.nextInt();
         entrada.nextLine();
 
@@ -60,36 +61,42 @@ public class Main {
             }
 
             System.out.println("""
-                            \nCadastrar novo pedido?
-                            1 - Sim
-                            2 - Não
-                            """);
+                    \nEscolha uma opção abaixo:
+                    \n1 - Cadastrar Pedido
+                    2 - Exibir Relatório
+                    3 - Encerrar Sistema
+                    """);
             opcao = entrada.nextInt();
             entrada.nextLine();
 
         }
 
-        double ticketMedio = 0.0;
-        if (pedidos > 0) {
-            ticketMedio = total / pedidos;
-        } else {
-            menorC = 0.0;
-        }
+        if (opcao == 2) {
+            double ticketMedio = 0.0;
+            if (pedidos > 0) {
+                ticketMedio = total / pedidos;
+            } else {
+                menorC = 0.0;
+            }
 
-        double media30 = 0.0;
-        if (qtd30 > 0) {
-            media30 = acima30 / qtd30;
-        }
+            double media30 = 0.0;
+            if (qtd30 > 0) {
+                media30 = acima30 / qtd30;
+            }
 
-        System.out.println("\n===== RELATÓRIO FINAL =====");
-        System.out.println("\nQuantidade de pedidos: " + pedidos);
-        System.out.println("Valor total vendido: R$ " + total);
-        System.out.println("Ticket médio: R$ " + ticketMedio);
-        System.out.println("Maior compra: R$ " + maiorC);
-        System.out.println("Menor compra: R$ " + menorC);
-        System.out.println("Compras acima de R$ 50,00: " + compra50);
-        System.out.println("Cliente que realizou a maior compra: " + cliente);
-        System.out.println("Média das compras acima de R$ 30,00: R$ " + media30);
+            System.out.println("\n===== RELATÓRIO FINAL =====");
+            System.out.println("\nQuantidade de pedidos: " + pedidos);
+            System.out.println("Valor total vendido: R$ " + total);
+            System.out.println("Ticket médio: R$ " + ticketMedio);
+            System.out.println("Maior compra: R$ " + maiorC);
+            System.out.println("Menor compra: R$ " + menorC);
+            System.out.println("Compras acima de R$ 50,00: " + compra50);
+            System.out.println("Cliente que realizou a maior compra: " + cliente);
+            System.out.println("Média das compras acima de R$ 30,00: R$ " + media30);
+
+        } else if (opcao == 3) {
+            System.out.println("\nSistema encerrando...");
+        }
 
     }
 }
