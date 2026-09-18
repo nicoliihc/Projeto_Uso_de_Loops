@@ -1,17 +1,72 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+        Scanner entrada = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+        int pedidos = 0;
+        double total = 0.0;
+        double maiorC = 0.0;
+        double menorC = 0.0;
+
+        System.out.println("\n=== Sistema de Registro de Pedidos de uma Lanchonete ===");
+
+        System.out.println("""
+                            \nDeseja cadastrar um pedido?
+                            1 - Sim
+                            2 - Não
+                            """);
+        int opcao = entrada.nextInt();
+        entrada.nextLine();
+
+        while (opcao == 1){
+            System.out.println("Nome do cliente: ");
+            String nome = entrada.nextLine();
+
+            System.out.println("Valor da compra: ");
+            double valor = entrada.nextDouble();
+
+            while (valor <= 0) {
+                System.out.println("O valor deve ser maior que zero! Digite outro valor: ");
+                valor = entrada.nextDouble();
+            }
+
+            pedidos++;
+            total += valor;
+
+            if (valor > maiorC) {
+                maiorC = valor;
+            }
+
+            if (pedidos == 1 || valor < menorC) {
+                menorC = valor;
+            }
+
+            System.out.println("""
+                            \nCadastrar novo pedido?
+                            1 - Sim
+                            2 - Não
+                            """);
+            opcao = entrada.nextInt();
+            entrada.nextLine();
+
         }
+
+        double ticketMedio = 0.0;
+        if (pedidos > 0) {
+            ticketMedio = total / pedidos;
+        } else {
+            menorC = 0.0;
+        }
+
+        System.out.println("\n===== RELATÓRIO FINAL =====");
+        System.out.println("\nQuantidade de pedidos: " + pedidos);
+        System.out.println("Valor total vendido: R$ " + total);
+        System.out.println("Ticket médio: R$ " + ticketMedio);
+        System.out.println("Maior compra: R$ " + maiorC);
+        System.out.println("Menor compra: R$ " + menorC);
+
     }
 }
