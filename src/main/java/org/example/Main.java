@@ -86,13 +86,19 @@ public class Main {
 
             System.out.println("\n===== RELATÓRIO FINAL =====");
             System.out.println("\nQuantidade de pedidos: " + pedidos);
-            System.out.println("Valor total vendido: R$ " + total);
-            System.out.println("Ticket médio: R$ " + ticketMedio);
-            System.out.println("Maior compra: R$ " + maiorC);
-            System.out.println("Menor compra: R$ " + menorC);
-            System.out.println("Compras acima de R$ 50,00: " + compra50);
+            System.out.println("Valor total vendido: R$" + total);
+            System.out.println("Ticket médio: R$" + ticketMedio);
+            System.out.println("Maior compra: R$" + maiorC);
+            System.out.println("Menor compra: R$" + menorC);
+            System.out.println("Compras acima de R$50,00: " + compra50);
             System.out.println("Cliente que realizou a maior compra: " + cliente);
-            System.out.println("Média das compras acima de R$ 30,00: R$ " + media30);
+            System.out.println("Média das compras acima de R$30,00: R$" + media30);
+
+            if (total > 500.0) {
+                System.out.println("\nMeta atingida!");
+            } else {
+                System.out.println("\nMeta não atingida :( \nFalta R$" + (500.0 - total) + " para atingir a meta!");
+            }
 
         } else if (opcao == 3) {
             System.out.println("\nSistema encerrando...");
