@@ -10,6 +10,7 @@ public class Main {
         double total = 0.0;
         double maiorC = 0.0;
         double menorC = 0.0;
+        int compra50 = 0;
 
         System.out.println("\n=== Sistema de Registro de Pedidos de uma Lanchonete ===");
 
@@ -35,6 +36,10 @@ public class Main {
 
             pedidos++;
             total += valor;
+
+            if (valor > 50.0) {
+                compra50++;
+            }
 
             if (valor > maiorC) {
                 maiorC = valor;
@@ -67,6 +72,7 @@ public class Main {
         System.out.println("Ticket médio: R$ " + ticketMedio);
         System.out.println("Maior compra: R$ " + maiorC);
         System.out.println("Menor compra: R$ " + menorC);
+        System.out.println("Compras acima de R$ 50,00: " + compra50);
 
     }
 }
