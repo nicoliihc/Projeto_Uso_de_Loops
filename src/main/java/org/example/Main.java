@@ -11,6 +11,7 @@ public class Main {
         double maiorC = 0.0;
         double menorC = 0.0;
         int compra50 = 0;
+        String cliente = "";
 
         System.out.println("\n=== Sistema de Registro de Pedidos de uma Lanchonete ===");
 
@@ -43,6 +44,7 @@ public class Main {
 
             if (valor > maiorC) {
                 maiorC = valor;
+                cliente = nome;
             }
 
             if (pedidos == 1 || valor < menorC) {
@@ -73,6 +75,7 @@ public class Main {
         System.out.println("Maior compra: R$ " + maiorC);
         System.out.println("Menor compra: R$ " + menorC);
         System.out.println("Compras acima de R$ 50,00: " + compra50);
+        System.out.println("Cliente que realizou a maior compra: " + cliente);
 
     }
 }
