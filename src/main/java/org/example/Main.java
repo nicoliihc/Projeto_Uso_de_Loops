@@ -12,6 +12,8 @@ public class Main {
         double menorC = 0.0;
         int compra50 = 0;
         String cliente = "";
+        double acima30 = 0.0;
+        int qtd30 = 0;
 
         System.out.println("\n=== Sistema de Registro de Pedidos de uma Lanchonete ===");
 
@@ -42,6 +44,12 @@ public class Main {
                 compra50++;
             }
 
+            if (valor > 30.0) {
+                acima30 += valor;
+                qtd30++;
+
+            }
+
             if (valor > maiorC) {
                 maiorC = valor;
                 cliente = nome;
@@ -68,6 +76,11 @@ public class Main {
             menorC = 0.0;
         }
 
+        double media30 = 0.0;
+        if (qtd30 > 0) {
+            media30 = acima30 / qtd30;
+        }
+
         System.out.println("\n===== RELATÓRIO FINAL =====");
         System.out.println("\nQuantidade de pedidos: " + pedidos);
         System.out.println("Valor total vendido: R$ " + total);
@@ -76,6 +89,7 @@ public class Main {
         System.out.println("Menor compra: R$ " + menorC);
         System.out.println("Compras acima de R$ 50,00: " + compra50);
         System.out.println("Cliente que realizou a maior compra: " + cliente);
+        System.out.println("Média das compras acima de R$ 30,00: R$ " + media30);
 
     }
 }
